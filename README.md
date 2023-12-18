@@ -3,3 +3,5 @@
 
 ### Features needed
 - [ ] dark theme
+- [x] share snippet
+- [x] add support for snippets, not only numbers
