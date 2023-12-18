@@ -1,5 +1,5 @@
 function checkThala() {
-    let snippet = document.getElementById('snippet').value;
+    let snippet = document.getElementById('snippet').value.trim();
     let sum = 0;
     if (is_numeric(snippet)) {
         let digits = [];
@@ -65,7 +65,7 @@ function is_numeric(str){
 }
 
 function share() {
-    let snippet = document.getElementById('snippet').value;
+    let snippet = document.getElementById('snippet').value.trim();
     let shareUrl = window.location.origin;
     if (snippet != '') {
         shareUrl = window.location.origin + `?s=${btoa(snippet)}`
@@ -90,7 +90,7 @@ for (entry of entries) {
 }
 if (params['s'] != undefined && params['s'] != '') {
     try {
-        document.getElementById('snippet').value = atob(params['s']);
+        document.getElementById('snippet').value = atob(params['s']).trim();
     } catch (_) {
         // pass
     }
