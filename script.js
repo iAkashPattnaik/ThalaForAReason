@@ -14,7 +14,7 @@ function checkThala() {
         Swal.fire({
             title: "Good job!",
             text: "Thala For A Reason!",
-            html: '<video autoplay muted class="text-center"><source src="./assets/correct.mp4" type="video/mp4"></video>',
+            html: '<video autoplay muted loop class="text-center"><source src="./assets/correct.mp4" type="video/mp4"></video>',
             showCloseButton: true,
             focusConfirm: false,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
