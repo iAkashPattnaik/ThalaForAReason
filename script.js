@@ -1,10 +1,15 @@
 function checkThala() {
-    let number = document.getElementById('number').value;
-    let digits = [];
-    for (var i of String(number)) {
-        digits.push(Number(i));
+    let snippet = document.getElementById('snippet').value;
+    let sum = 0;
+    if (is_numeric(snippet)) {
+        let digits = [];
+        for (var i of String(snippet)) {
+            digits.push(Number(i));
+        }
+        sum = digits.reduce(function(a, b) { return parseInt(a) + parseInt(b); }, 0);
+    } else {
+        sum = snippet.length;
     }
-    let sum = digits.reduce(function(a, b) { return parseInt(a) + parseInt(b); }, 0);
     if (sum == 7) {
         var sound = document.getElementsByTagName('audio')[0];
         sound.pause();
@@ -16,7 +21,7 @@ function checkThala() {
             text: "Thala For A Reason!",
             html: '<video autoplay muted loop class="text-center"><source src="./assets/correct.mp4" type="video/mp4"></video>',
             showCloseButton: true,
-            focusConfirm: false,
+            focusConfirm: true,
             confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
             confirmButtonAriaLabel: 'OK',
         });
@@ -53,4 +58,8 @@ function confettiAnimation() {
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
+}
+
+function is_numeric(str){
+    return /^\d+$/.test(str);
 }
