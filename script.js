@@ -63,3 +63,35 @@ function confettiAnimation() {
 function is_numeric(str){
     return /^\d+$/.test(str);
 }
+
+function share() {
+    let snippet = document.getElementById('snippet').value;
+    let shareUrl = window.location.origin;
+    if (snippet != '') {
+        shareUrl = window.location.origin + `?s=${btoa(snippet)}`
+    }
+    navigator.clipboard.writeText(shareUrl);
+    Swal.fire({
+        title: "Success!",
+        text: "Share Url has been copied to your clipboard!",
+        showCloseButton: true,
+        focusConfirm: true,
+        confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+        confirmButtonAriaLabel: 'OK',
+    });
+}
+
+// Run on page load
+const urlParams = new URLSearchParams(window.location.search);
+const entries = urlParams.entries();
+const params = {};
+for (entry of entries) {
+    params[entry[0]] = entry[1];
+}
+if (params['s'] != undefined && params['s'] != '') {
+    try {
+        document.getElementById('snippet').value = atob(params['s']);
+    } catch (_) {
+        // pass
+    }
+}
