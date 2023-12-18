@@ -1,0 +1,28 @@
+{
+  "name": "thalaforareason",
+  "version": "1.0.0",
+  "description": "A fun open source project",
+  "main": "index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./input.css -o ./tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iAkashPattnaik/ThalaForAReason.git"
+  },
+  "keywords": [
+    "thala",
+    "fun"
+  ],
+  "author": "Akash Pattnaik <akashpattnaik.github@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iAkashPattnaik/ThalaForAReason/issues"
+  },
+  "homepage": "https://github.com/iAkashPattnaik/ThalaForAReason#readme"
+}
